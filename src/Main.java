@@ -1,10 +1,11 @@
 public class Main {
+    public static int addNumber (int a, int b) {
+        int result = a + b;
+        return result;
+    }
+
     public static void main(String[] args) {
-        for (int i = 1; i < 10; i++) {
-            if (i % 3 != 0) {
-                continue;
-            }
-            System.out.println(i);
-        }
+        int number = addNumber(10, 20);
+        System.out.println(number);
     }
 }
