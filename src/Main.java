@@ -1,24 +1,30 @@
-class Person {
-    String name;
-    int age;
+class Car {
+    String brand;
+    int year;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+
+    public Car(String brand, int year) {
+        this.brand = brand;
+        this.year = year;
     }
 
-    public void sayHello() {
-        System.out.println("안녕하세요 저는 " + name + "이고, 나이는 " + age + "입니다.");
-    }
+
+    public void displayInfo() {
+
+            System.out.println(brand);
+            System.out.println(year);
+        }
+
+
 }
 
 
 public class Main {
     public static void main(String[] args) {
-        Person p1 = new Person("한철규", 27);
-        Person p2 = new Person("신태희", 24);
-        p1.sayHello();
-        p2.sayHello();
+        Car car1 = new Car("현대", 20);
+        Car car2 = new Car("기아", 24);
 
+        car1.displayInfo();
+        car2.displayInfo();
     }
 }
