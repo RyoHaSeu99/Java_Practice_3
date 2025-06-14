@@ -1,20 +1,26 @@
-class Person {
-    String name;
-    int age;
-
-    public void sayHello() {
-        System.out.printf("안녕하세요 제 이름은 %s이고 나이는 %d 입니다", name, age);
-    }
-}
+import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
-        Person person = new Person();
+        Scanner scanner = new Scanner(System.in);
+        String A, B;
+        int C;
+        double D;
+        char E;
 
-        person.name = "한철규";
-        person.age = 27;
+        A = scanner.nextLine();
+        B = scanner.next();
+        C = scanner.nextInt();
+        D = scanner.nextDouble();
+        E = scanner.next().charAt(0);
 
-        person.sayHello();
+        scanner.close();
+
+        System.out.println(A);
+        System.out.println(B);
+        System.out.println(C);
+        System.out.println(D);
+        System.out.println(E);
     }
 }
