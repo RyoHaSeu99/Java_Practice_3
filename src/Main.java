@@ -1,19 +1,17 @@
-class Example {
-    public int a = 1;
-    protected int b = 2;
-    int c = 3;
-    private int d = 4;
-}
-
 public class Main {
     public static void main(String[] args) {
-        Example ex = new Example();
+        String message = "Hello, Java!";
 
-        System.out.println(ex.a);
-        System.out.println(ex.b);
-        System.out.println(ex.c);
-        System.out.println(ex.d);
+        // 문자열 길이 확인
+        System.out.println("문자열 길이: " + message.length());
 
+        // 대문자로 변환
+        System.out.println("대문자로 변환: " + message.toUpperCase());
 
+        // 부분 문자열 추출
+        System.out.println("부분 문자열 (0~5): " + message.substring(0, 5));
+
+        // 특정 문자의 위치 찾기(인덱스)
+        System.out.println("문자 'J'의 위치: " + message.indexOf('J'));
     }
 }
