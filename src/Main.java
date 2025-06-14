@@ -1,17 +1,20 @@
+class Person {
+    String name;
+    int age;
+
+    public void sayHello() {
+        System.out.printf("안녕하세요 제 이름은 %s이고 나이는 %d 입니다", name, age);
+    }
+}
+
+
 public class Main {
     public static void main(String[] args) {
-        String message = "Hello, Java!";
+        Person person = new Person();
 
-        // 문자열 길이 확인
-        System.out.println("문자열 길이: " + message.length());
+        person.name = "한철규";
+        person.age = 27;
 
-        // 대문자로 변환
-        System.out.println("대문자로 변환: " + message.toUpperCase());
-
-        // 부분 문자열 추출
-        System.out.println("부분 문자열 (0~5): " + message.substring(0, 5));
-
-        // 특정 문자의 위치 찾기(인덱스)
-        System.out.println("문자 'J'의 위치: " + message.indexOf('J'));
+        person.sayHello();
     }
 }
