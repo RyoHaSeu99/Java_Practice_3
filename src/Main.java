@@ -1,26 +1,29 @@
-import java.util.Scanner;
+class Animal {
+    String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    public void printName() {
+        System.out.println("Animal name: " + name);
+    }
+}
+
+class Dog extends Animal {
+    String breed;
+
+    public Dog(String name, String breed) {
+        super(name);
+        this.breed = breed;
+    }
+}
 
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String A, B;
-        int C;
-        double D;
-        char E;
+        Animal dog = new Dog("코코", "말티즈");
 
-        A = scanner.nextLine();
-        B = scanner.next();
-        C = scanner.nextInt();
-        D = scanner.nextDouble();
-        E = scanner.next().charAt(0);
-
-        scanner.close();
-
-        System.out.println(A);
-        System.out.println(B);
-        System.out.println(C);
-        System.out.println(D);
-        System.out.println(E);
+        dog.printName();
     }
 }
