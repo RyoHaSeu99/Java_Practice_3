@@ -17,6 +17,12 @@ class Dog extends Animal {
         super(name);
         this.breed = breed;
     }
+
+    @Override
+    public void printName() {
+        System.out.println("Dog name: " + name);
+        System.out.println("Breed: " + breed);
+    }
 }
 
 
