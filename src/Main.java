@@ -1,34 +1,27 @@
-class AccessModifiersExample {
-    public int publicField = 10;
-    private int privateField = 20;
-    protected int protectedField = 30;
-
-
-    public int getPublicField() {
-        return publicField;
-    }
-    public int getPrivateField() {
-        return privateField;
-    }
-
-    public int getProtectedField() {
-        return protectedField;
-    }
-
-
+class Example {
+    public int a = 1;
+    int b = 2;
+    protected int c = 3;
+    private int d = 4;
 
     public void displayFields() {
-        System.out.println("Public Field: " + publicField);
-        System.out.println("Private Field: " + privateField);
-        System.out.println("Protected Field: " + protectedField);
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        AccessModifiersExample accessModifiersExample = new AccessModifiersExample();
+        Example ex = new Example();
 
-        accessModifiersExample.displayFields();
+        ex.displayFields();
+//        System.out.println(ex.a);
+//        System.out.println(ex.b);
+//        System.out.println(ex.c);
+//        System.out.println(ex.d);
+
 
     }
 }
