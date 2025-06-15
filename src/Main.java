@@ -1,35 +1,15 @@
-class Animal {
-    String name;
-
-    public Animal(String name) {
-        this.name = name;
-    }
-
-    public void printName() {
-        System.out.println("Animal name: " + name);
-    }
+class Node {
+    Node next;
 }
-
-class Dog extends Animal {
-    String breed;
-
-    public Dog(String name, String breed) {
-        super(name);
-        this.breed = breed;
-    }
-
-    @Override
-    public void printName() {
-        System.out.println("Dog name: " + name);
-        System.out.println("Breed: " + breed);
-    }
-}
-
 
 public class Main {
     public static void main(String[] args) {
-        Animal dog = new Dog("코코", "말티즈");
+        Node a = new Node();    // Root Set
+        Node b = new Node();
+        Node c = new Node();
+        Node d = new Node();    // 누구도 d를 참조하지 않음 → 삭제 대상
 
-        dog.printName();
+        a.next = b;
+        b.next = c;
     }
 }
