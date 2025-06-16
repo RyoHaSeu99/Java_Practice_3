@@ -1,27 +1,14 @@
-class Example {
-    public int a = 1;
-    int b = 2;
-    protected int c = 3;
-    private int d = 4;
-
-    public void displayFields() {
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(d);
-    }
+class Person {
+    public static void greet() {
+        System.out.println("hello from static method!");
 }
-
-public class Main {
+    public void sayHello() {
+        System.out.println("Hello from instance method!");
+    }
     public static void main(String[] args) {
-        Example ex = new Example();
+        Person.greet();
 
-        ex.displayFields();
-//        System.out.println(ex.a);
-//        System.out.println(ex.b);
-//        System.out.println(ex.c);
-//        System.out.println(ex.d);
-
-
+        Person p = new Person();
+        p.sayHello();
     }
 }
