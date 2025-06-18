@@ -1,38 +1,22 @@
-interface Shape {
-    double area();
-}
+abstract class Animal {
+    abstract void makeSound();
 
-class Circle implements Shape {
-    double r;
-    public Circle(double radius) {
-        this.r = radius;
-    }
-
-    public double area(){
-        return Math.PI * r * r;
+    public void sleep(){        // 상속 그대로 사용
+        System.out.println("Zzz... 자는중...");
     }
 }
 
-class Square implements Shape {
-    double side;
-    public Square(double side) {
-        this.side = side;
-    }
-
-    public double area() {
-        return side * side;
+class Dog extends Animal {
+    @Override
+    void makeSound(){       // 오버라이딩
+        System.out.println("멍멍!");
     }
 }
-
 public class Main {
     public static void main(String[] args) {
-        Shape[] shapes = {
-                new Circle(5),
-                new Square(4)
-        };
+        Dog dog = new Dog();
 
-        for(Shape s : shapes ) {
-            System.out.println(s.area());
-        }
+        dog.makeSound();
+        dog.sleep();
     }
 }
