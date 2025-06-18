@@ -1,22 +1,43 @@
-abstract class Animal {
-    abstract void makeSound();
+abstract class Shape {
+    abstract double area();
 
-    public void sleep(){        // 상속 그대로 사용
-        System.out.println("Zzz... 자는중...");
+    public void displayArea(){
+        System.out.println("Area: " + area());
     }
 }
 
-class Dog extends Animal {
+class Rectangle extends Shape {
+    double width, height;
+
+    public Rectangle(double width, double height) {
+        this.width =width;
+        this.height = height;
+    }
+
     @Override
-    void makeSound(){       // 오버라이딩
-        System.out.println("멍멍!");
+    public double area() {
+        return width * height;
+    }
+}
+
+class Circle extends Shape {
+    double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
     }
 }
 public class Main {
     public static void main(String[] args) {
-        Dog dog = new Dog();
+        Circle circle = new Circle(3);
+        Shape rectangle = new Rectangle(4, 5);
 
-        dog.makeSound();
-        dog.sleep();
+        circle.displayArea();
+        rectangle.displayArea();
     }
 }
