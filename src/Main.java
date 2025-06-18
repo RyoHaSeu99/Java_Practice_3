@@ -1,36 +1,38 @@
-interface Animal {
-    void makeSound();
+interface Shape {
+    double area();
 }
 
-class Dog implements Animal {
-    @Override
-    public void makeSound() {
-        System.out.println("멍멍!");
+class Circle implements Shape {
+    double r;
+    public Circle(double radius) {
+        this.r = radius;
+    }
+
+    public double area(){
+        return Math.PI * r * r;
     }
 }
 
-class Cat implements Animal {
-    public void makeSound() {
-        System.out.println("야옹!");
+class Square implements Shape {
+    double side;
+    public Square(double side) {
+        this.side = side;
     }
-}
 
-class Cow implements Animal {
-    public void makeSound() {
-        System.out.println("음메!");
+    public double area() {
+        return side * side;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Animal[] animals = {
-            new Dog(),
-            new Cat(),
-            new Cow()
+        Shape[] shapes = {
+                new Circle(5),
+                new Square(4)
         };
 
-        for (Animal a : animals) {
-            a.makeSound();
+        for(Shape s : shapes ) {
+            System.out.println(s.area());
         }
     }
 }
