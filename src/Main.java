@@ -1,25 +1,19 @@
-class Car {
-    String brand;
+public class Main {
+    String outerMessage = "Hello from Outer";
 
-    public Car(String brand) {
-        this.brand = brand;
-    }
-
-    class Engine {
-        public void start() {
-            System.out.println("The engine of " + brand + " is starting");
+    class Inner {
+        void showMessage() {
+            System.out.println(outerMessage);
         }
     }
-
-    public void startEngine() {
-        Engine engine = new Engine();
-        engine.start();
-    }
-}
-
-public class Main {
     public static void main(String[] args) {
-        Car myCar = new Car("sonata");
-        myCar.startEngine();
+        // 1. Outer 객체 생성
+        Main outer = new Main();
+
+        // 2. Inner 객체 생성
+        Main.Inner inner = outer.new Inner();
+
+        // 3. Inner 클래스 메서드 호출
+        inner.showMessage();
     }
 }
