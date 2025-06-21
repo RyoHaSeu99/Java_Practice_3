@@ -1,43 +1,25 @@
-abstract class Shape {
-    abstract double area();
+class Person {
+    static String a = "static";
+    String b = "instance";
 
-    public void displayArea(){
-        System.out.println("Area: " + area());
+    public static void greed() {
+        System.out.println("Hello from static method!");
+    }
+
+    public void sayHello() {
+        System.out.println("Hello from instance method!");
     }
 }
 
-class Rectangle extends Shape {
-    double width, height;
-
-    public Rectangle(double width, double height) {
-        this.width =width;
-        this.height = height;
-    }
-
-    @Override
-    public double area() {
-        return width * height;
-    }
-}
-
-class Circle extends Shape {
-    double radius;
-
-    public Circle(double radius) {
-        this.radius = radius;
-    }
-
-    @Override
-    public double area() {
-        return Math.PI * radius * radius;
-    }
-}
 public class Main {
     public static void main(String[] args) {
-        Circle circle = new Circle(3);
-        Shape rectangle = new Rectangle(4, 5);
+        // static 멤버는 클래스 이름으로 직접 호출
+        Person.greed();
+        System.out.println(Person.a);
 
-        circle.displayArea();
-        rectangle.displayArea();
+        // 인스턴스 멤버는 객체 생성 후 객체 이름으로 호출
+        Person p = new Person();
+        p.sayHello();
+        System.out.println(p.b);
     }
 }
