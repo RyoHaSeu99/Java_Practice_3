@@ -1,16 +1,13 @@
-interface Calculator {
-    int compute(int a, int b);
+@FunctionalInterface
+interface MathOperation {
+    int operate(int a, int b);
 }
 
 public class Main {
     public static void main(String[] args) {
-        Calculator calc = new Calculator() {
-            @Override
-            public int compute(int a, int b) {
-                return a * b;
-            }
-        };
-        System.out.println(calc.compute(3, 4));
+        MathOperation add = (a, b) -> a + b;
+        MathOperation multiply = (a, b) -> a * b;
+        System.out.println(add.operate(5, 3));
+        System.out.println(multiply.operate(5, 3));
     }
 }
-
