@@ -2,12 +2,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Set<String> treedFruits = new TreeSet<>();
+        Map<String, Integer> fruitPrice = new TreeMap<>();
 
-        treedFruits.add("Banana");
-        treedFruits.add("Mango");
-        treedFruits.add("Apple");
+        fruitPrice.put("Banana", 50);
+        fruitPrice.put("Cherry", 200);
+        fruitPrice.put("Apple", 150);
 
-        System.out.println(treedFruits);
+        for (Map.Entry<String, Integer> entry : fruitPrice.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 }
