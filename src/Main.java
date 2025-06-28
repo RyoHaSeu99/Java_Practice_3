@@ -1,13 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        int a = 10;
-        int b = 0;
+        int[] tokens = {1, 2, 3};
 
-        try {
-            int result = a / b;
-            System.out.println("Result: " + result);
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
+        if (tokens.length != 2) {
+            throw new NumberFormatException("숫자가 2개가 아닙니다.");
         }
     }
 }
