@@ -1,15 +1,19 @@
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        int a = 10;
-        int b = 0;
+        List<String> fruits = new ArrayList<>();
 
-        try {
-            int result = a / b;
-            System.out.println("Result: " + result);
-        } catch (ArithmeticException e) {
-            System.out.println("Error: Division by zero");
-        } finally {
-            System.out.println("Cleanup: This block always executes.");
-        }
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Apple");
+
+        System.out.println(fruits.indexOf("Banana"));
+
+        fruits.set(1, "Orange");
+        System.out.println(fruits);
+
+        List<String> sliced = fruits.subList(0, 2);
+        System.out.println(sliced);
     }
 }
