@@ -1,13 +1,31 @@
-import java.util.Arrays;
-import java.util.List;
+class MyThread extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("MyThread: " + i);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println("MyThread was interrupted.");
+            }
+        }
+    }
+
+    public void test() {
+        for (int i = 1; i <=5; i++) {
+            System.out.println("Test");
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println("MyThread was interrupted.");
+            }
+        }
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-        int sum = numbers.stream()
-                .filter(n -> n % 2 == 0)
-                .mapToInt(Integer::intValue)
-                .sum();
-        System.out.println("Sum of even numbers: " + sum);
+        MyThread thread = new MyThread();
+        thread.start();
+        thread.test();
     }
 }
