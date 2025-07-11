@@ -1,16 +1,19 @@
-class MyThread extends Thread {
+class MyRunnable implements Runnable {
+    @Override
     public void run() {
         for (int i = 1; i <= 5; i++) {
-            System.out.println("MyThread: " + i);
+            System.out.println("Runnable");
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
-                System.out.println("MyThread was interrupted.");
+                System.out.println("MyRunnable was interrupted.");
             }
         }
     }
+}
 
-    public void test() {
+public class Main {
+    public static void test() {
         for (int i = 1; i <=5; i++) {
             System.out.println("Test");
             try {
@@ -20,12 +23,9 @@ class MyThread extends Thread {
             }
         }
     }
-}
-
-public class Main {
     public static void main(String[] args) {
-        MyThread thread = new MyThread();
+        Thread thread = new Thread(new MyRunnable());
         thread.start();
-        thread.test();
+        test();
     }
 }
