@@ -1,35 +1,54 @@
-class Counter {
-    private int count = 0;
+class SumThread extends Thread {
+    private int[] array;
+    private int start, end;
+    private int partialSum = 0;
 
-    public synchronized void increment() {
-        count++;
+    public SumThread(int[] array, int start, int end) {
+        this.array = array;
+        this.start = start;
+        this.end = end;
     }
 
-    public int getCount() {
-        return count;
+    public void run() {
+        for (int i = start; i < end; i++) {
+            partialSum += array[i];
+        }
+    }
+
+    public int getPartialSum() {
+        return partialSum;
     }
 }
 
-
-
-
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
-        Counter counter = new Counter();
-        Runnable task = () -> {
-            for (int i = 0; i < 1000; i++) {
-                counter.increment();
-            }
-        };
+    public static void main(String[] args) {
+        int[] numbers = new int[100];
+        for (int i = 0; i < 100; i++) {
+            numbers[i] = i + 1;
+        }
 
-        Thread[] threads = new Thread[5];
-        for (int i = 0; i < 5; i++) {
-            threads[i] = new Thread(task);
+        int numThreads = 4;
+        int chunkSize = numbers.length / numThreads;
+        SumThread[] threads = new SumThread[numThreads];
+
+        for (int i = 0; i < numThreads; i++) {
+            int start = i * chunkSize;
+            int end = (i == numThreads - 1) ? numbers.length : start + chunkSize;
+
+            threads[i] = new SumThread(numbers, start, end);
             threads[i].start();
         }
-        for (Thread t : threads) {
-            t.join();
+
+        int totalSum = 0;
+        try {
+            for (SumThread thread : threads) {
+                thread.join();
+                totalSum += thread.getPartialSum();
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted: " + e.getMessage());
         }
-        System.out.println("Final count: " + counter.getCount());
+
+        System.out.println("Total sum: " + totalSum);
     }
 }
