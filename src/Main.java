@@ -1,18 +1,19 @@
 import java.lang.reflect.*;
 
-class Person {
-    public Person() {
-        System.out.println("Person 생성자 호출됨");
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
     }
 }
 
 public class Main {
-    public static void main(String[] args) {
-        try {
-            Class<?> clazz = Person.class;
-            Object obj = clazz.getDeclaredConstructor().newInstance();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws Exception {
+        Class<?> clazz = Calculator.class;
+        Object instance = clazz.getDeclaredConstructor().newInstance();
+
+        Method method = clazz.getMethod("add", int.class, int.class);
+        Object result = method.invoke(instance, 10, 20);
+
+        System.out.println("결과: " + result);
     }
 }
