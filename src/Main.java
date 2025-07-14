@@ -1,13 +1,11 @@
-import java.util.*;
+@FunctionalInterface
+interface Greeting {
+    void sayHello(String name);
+}
 
 public class Main {
-    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-       List list = new ArrayList();
-       list.add("Hello");
-       list.add("World");
-       for (Object obj : list) {
-           System.out.println(obj);
-       }
+        Greeting greeting = (name) -> System.out.println("Hello, " + name + "!");
+        greeting.sayHello("Alice");
     }
 }
