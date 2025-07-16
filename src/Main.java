@@ -1,5 +1,4 @@
 import java.lang.reflect.*;
-import java.util.Calendar;
 
 class Secret {
     private  String reveal(String code) {
