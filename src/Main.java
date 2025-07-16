@@ -1,20 +1,15 @@
-import java.lang.reflect.*;
+import java.lang.annotation.*;
 
-class Secret {
-    private  String reveal(String code) {
-        return "Access granted to: " + code;
-    }
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE, ElementType.METHOD})
+@interface CustomInfo {
+    String author();
+    String date();
+    int version() default 1;
 }
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Class<?> clazz = Secret.class;
-        Object obj = clazz.getDeclaredConstructor().newInstance();
 
-        Method method = clazz.getDeclaredMethod("reveal", String.class);
-        method.setAccessible(true);
-
-        Object result = method.invoke(obj, "admin");
-        System.out.println(result);
     }
 }
