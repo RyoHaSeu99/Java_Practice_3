@@ -1,18 +1,21 @@
 import java.lang.reflect.*;
+import java.util.Calendar;
 
 class Secret {
-    private void whisper() {
-        System.out.println("This is a secret method.");
+    private  String reveal(String code) {
+        return "Access granted to: " + code;
     }
 }
 
 public class Main {
     public static void main(String[] args) throws Exception {
         Class<?> clazz = Secret.class;
-        Object instance = clazz.getDeclaredConstructor().newInstance();
+        Object obj = clazz.getDeclaredConstructor().newInstance();
 
-        Method method = clazz.getDeclaredMethod("whisper");
-        method.setAccessible(true); // private 접근 허용
-        method.invoke(instance);    // 메서드 실행
+        Method method = clazz.getDeclaredMethod("reveal", String.class);
+        method.setAccessible(true);
+
+        Object result = method.invoke(obj, "admin");
+        System.out.println(result);
     }
 }
